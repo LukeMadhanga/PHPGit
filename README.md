@@ -35,80 +35,123 @@ The trickiest part of the whole process is allowing PHP to perform `pull` and `p
 *Stage a file to be committed*
 
 Arguments
+
 string | array `$list` An array or space-separated list of files to stage
+
 **returns** `\LukeMadhanga\Git\Response`
+
+---
 
 #### branch
 *Get a `\LukeMadhanga\Git\Branch` object describing the current branch*
 
 No arguments
+
 **returns** `\LukeMadhanga\Git\Branch`
+
+---
 
 #### commit
 *Commit*
 
 Arguments
 string `$message` [optional] The message of the commit
+
 array `$args` [optional] Arguments to pass to the `git commit` command as an associative array
+
 array `$files` [optional] A list of files to commit
+
 **Returns** `\LukeMadhanga\Git\Response`
+
+---
 
 #### diff
 *Diff two branches*
 
 Arguments
+
 string `$brancha` The branch to compare \$branchb to
+
 string `$branchb` [optional] The branch to compare \$brancha to. Defaults to `master`
+
 boolean `$full` [optional] True (**Untested**) to perform a full diff. Defaults to `false`
+
 string `$filename` [optional] The name of a file to diff. If omitted, all files will be diffed.
+
 **returns** `\LukeMadhanga\Git\Diff\Diff`
+
+---
 
 #### getBinary
 *Get the path to the binary in use*
 
 No Arguments
+
 **Returns** string The path to the binary in use
+
+---
 
 #### getConfiguration
 *Get the configuration details for the current repository*
 
 No Arguments
+
 **Returns** `\LukeMadhanga\Git\Config`
+
+---
 
 #### pull
 *Pull from the remote server*
 
 Arguments
+
 string `$remote` [optional] The name of the remote to use. Defaults to `origin`
+
 **Returns** `\LukeMadhanga\Git\Response`
+
+---
 
 #### push
 *Push commits to the server*
 
 Arguments
 string `$remote` [optional] The name of the remote to push to. Defaults to `origin`
+
 string `$branch` [optional] The name of the branch to push to. Defaults to the current branch
+
 **Returns** `\LukeMadhanga\Git\Response`
+
+---
 
 #### resetHead
 *Unstage files for commit*
 
 No Arguments
+
 **Returns** `null`
+
+---
 
 #### run
 *The main processing function that runs all `git xxx` commands*
 
 Arguments
 string `$command` The command to run, without the leading `git`. E.g. `pull origin master`. Use with caution.
+
 array `$arguments` [optional] Arguments to pass to `STDIN`
+
 \LukeMadhanga\Git\Response `$response` [optional] A response object if chaining responses
+
 **Returns** `\LukeMadhanga\Git\Response`
+
+---
 
 #### status
 *Get the status of the current repository*
 
 Arguments
 boolean `$remote` [optional] True to get the status of the remote branch
+
 boolean `$incdirpath` [optional] True to include the directory path to the outputted files
+
 **Returns** `\LukeMadhanga\Git\Status`
