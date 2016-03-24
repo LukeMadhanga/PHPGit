@@ -31,20 +31,20 @@ The trickiest part of the whole process is allowing PHP to perform `pull` and `p
 
 ## Methods
 
-#### \$git->add(string|array $list)
+#### add
 *Stage a file to be committed*
 
 Arguments
 string | array `$list` An array or space-separated list of files to stage
 **returns** `\LukeMadhanga\Git\Response`
 
-#### \$git->branch()
+#### branch
 *Get a `\LukeMadhanga\Git\Branch` object describing the current branch*
 
 No arguments
 **returns** `\LukeMadhanga\Git\Branch`
 
-#### \$git->commit(string \$message, array \$args, array \$files)
+#### commit
 *Commit*
 
 Arguments
@@ -53,7 +53,7 @@ array `$args` [optional] Arguments to pass to the `git commit` command as an ass
 array `$files` [optional] A list of files to commit
 **Returns** `\LukeMadhanga\Git\Response`
 
-#### \$git->diff(string \$brancha, string \$branchb, boolean \$full, string \$filename)
+#### diff
 *Diff two branches*
 
 Arguments
@@ -63,26 +63,26 @@ boolean `$full` [optional] True (**Untested**) to perform a full diff. Defaults 
 string `$filename` [optional] The name of a file to diff. If omitted, all files will be diffed.
 **returns** `\LukeMadhanga\Git\Diff\Diff`
 
-#### $git->getBinary()
+#### getBinary
 *Get the path to the binary in use*
 
 No Arguments
 **Returns** string The path to the binary in use
 
-#### $git->getConfiguration()
+#### getConfiguration
 *Get the configuration details for the current repository*
 
 No Arguments
 **Returns** `\LukeMadhanga\Git\Config`
 
-#### \$git->pull(string $remote)
+#### pull
 *Pull from the remote server*
 
 Arguments
 string `$remote` [optional] The name of the remote to use. Defaults to `origin`
 **Returns** `\LukeMadhanga\Git\Response`
 
-#### \$git->push(string \$remote, string \$branch)
+#### push
 *Push commits to the server*
 
 Arguments
@@ -90,13 +90,13 @@ string `$remote` [optional] The name of the remote to push to. Defaults to `orig
 string `$branch` [optional] The name of the branch to push to. Defaults to the current branch
 **Returns** `\LukeMadhanga\Git\Response`
 
-#### \$git->resetHead()
+#### resetHead
 *Unstage files for commit*
 
 No Arguments
 **Returns** `null`
 
-#### \$git->run(string \$command, array \$arguments, Response \$response)
+#### run
 *The main processing function that runs all `git xxx` commands*
 
 Arguments
@@ -105,7 +105,7 @@ array `$arguments` [optional] Arguments to pass to `STDIN`
 \LukeMadhanga\Git\Response `$response` [optional] A response object if chaining responses
 **Returns** `\LukeMadhanga\Git\Response`
 
-#### \$git->status(boolean \$remote, boolean \$incdirpath)
+#### status
 *Get the status of the current repository*
 
 Arguments
