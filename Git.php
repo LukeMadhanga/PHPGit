@@ -250,13 +250,17 @@ class Git {
     }
     
     /**
-     * 
-     * @param string $remote The name of the remote to set
+     * Pull from a specified remote
+     * @param string $branch [optional] The name of the branch to pull from. Defaults to the current branch
+     * @param string $remote [optional] The name of the remote to set
      * @return \LukeMadhanga\Git\Response
      * @throws \Exception
      */
-    function pull($remote = 'origin') {
-        $result = $this->run("pull {$remote} {$this->branch()}");
+    function pull($branch = null, $remote = 'origin') {
+        if (!$branch) {
+            $branch = $this->branch();
+        }
+        $result = $this->run("pull {$remote} {$branch}");
         if (!preg_match("/^From/", trim($result->getErrorMessage()))) {
             // Data sometimes gets sent in the 
             $result->throwExceptionIfError();
@@ -275,7 +279,7 @@ class Git {
             // Default the branch to this current branch
             $branch = $this->branch();
         }
-        return $this->run("push {$remote} {$this->branch()}");
+        return $this->run("push {$remote} {$branch}");
     }
     
     /**
