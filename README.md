@@ -105,6 +105,8 @@ No Arguments
 
 Arguments
 
+string `$branch` [optional] The name of the branch to pull from. Defaults to the current branch
+
 string `$remote` [optional] The name of the remote to use. Defaults to `origin`
 
 **Returns** `\LukeMadhanga\Git\Response`
