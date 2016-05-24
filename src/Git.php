@@ -94,7 +94,7 @@ class Git {
         }
         $response = $this->run('diff ' . implode(' ', $args));
         $response->throwExceptionIfError();
-        $data = trim();
+        $data = trim($response);
         if ($data) {
             $diff = new Diff\Diff($data);
             $result = $diff;
