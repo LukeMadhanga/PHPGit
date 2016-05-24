@@ -112,7 +112,7 @@ class Git {
      */
     function status($remote = false, $incdirpath = false) {
         if ($remote) {
-            $rawstatus = $this->run("diff --name-status -w {$this->branch()} master");
+            $rawstatus = $this->run("diff --name-status -w master {$this->branch()}");
         } else {
             $rawstatus = $this->run("remote update && {$this->binary} status -s");
         }
