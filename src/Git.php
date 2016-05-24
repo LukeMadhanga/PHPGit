@@ -45,7 +45,7 @@ class Git {
             $user = shell_exec('whoami');
             throw new \Exception("User {$user} cannot read the folder {$this->directory}");
         }
-        $this->binary = $binary ? $binary : shell_exec('which git');
+        $this->binary = $binary ? $binary : trim(shell_exec('which git'));
         // Test the binary to ensure that it is legit
         $version = $this->run('--version')->getLastMessage();
         if (!preg_match("/^git version [0-9\.]+/", $version)) {
